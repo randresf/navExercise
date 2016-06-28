@@ -1,0 +1,272 @@
+@import "fonts";
+// variables
+@white: #fff;
+@black: #000;
+@gray: #eee;
+@magenta: #ec008c;
+@translucent-black: rgba(0, 0, 0, 0.5);
+//*************
+@font-first-level-desktop-1: 21px;
+@font-second-level-desktop-1: 16px;
+@font-headline-desktop-1: 120px;
+@font-bodytext-desktop-1: 24px;
+@font-first-level-desktop-2: 16px;
+@font-second-level-desktop-2: 14px;
+@font-headline-desktop-2: 70px;
+@font-bodytext-desktop-2: 18px;
+@font-headline-mobile: 44px;
+@font-bodytext-mobile: 14px;
+
+body {
+  background: @white;
+  color: @black;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+	background-color: @magenta;
+	color: @white;
+	padding: 0;
+	width: 100%;
+	float: left;
+	z-index: 20;
+	position: relative;
+
+	h1 {
+		float: left;
+		margin: 0 45px 0 0;
+		padding: 20px 0 20px 20px;
+		img.hugeIcon {
+			width: 60px;
+			float: left;
+		}
+	}
+
+	.nav {
+		ul {
+			background-color: @magenta;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			li {
+				font-family: 'HUGEAvantGardeBold';
+				font-size: @font-first-level-desktop-1;
+				line-height: 48px;
+				outline: 0;
+				text-align: left;
+				&:hover > a{
+					background-color: @white;
+					color: @magenta;
+				}
+			}
+
+			li.parents:focus ul {
+			  /*  opacity is 1 in opened state (see below) */
+			  opacity: 1;
+			  visibility: visible;
+			}
+
+			li.parents ul {
+			  position: absolute;
+			  z-index: 100;
+			  /* use opacity to fake immediate toggle */
+			  opacity: 0;
+			  visibility: hidden;
+			  transition: visibility 0.5s;
+			}
+			a {
+				border-bottom: none;
+				display: block;
+				height: 54px;
+				padding-left: 15px;
+				padding-top: 10px;
+				text-decoration: none;
+				color: @white;
+				transition: .3s background-color;
+				cursor: pointer;
+			}
+
+		}
+
+	}
+	/* Sub Menus */
+	@media screen and (min-width: 650px) {
+		.mobile-menu{
+			display:none;
+		}
+		.nav {
+			>ul {
+				li {
+					width: 130px;
+					border-bottom: none;
+					height: 64px;
+					line-height: 48px;
+					display: inline-block;
+					margin-right: -4px;
+				}
+				li.parents{
+					ul {
+						background-color: @white;
+						list-style: none;
+						margin: 0;
+						padding: 0;
+						text-align: center;
+						width: 200px;
+						li {
+							font-family: 'GalaxieBook';
+							font-size: @font-first-level-desktop-2;
+							display: block;
+							line-height: 48px;
+							width: 100%;
+						}
+						a {
+							color: @black;
+							transition: .3s background-color;
+							&:hover {
+								background-color:@gray;
+								color: @magenta;
+							}
+							&:focus {
+								outline: 0;
+							}
+						}
+					}
+				}
+
+				>li {
+					text-align: center;
+					>a {
+						padding-left: 0;
+					}
+				}
+				a {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+
+	/* Smartphones (portrait and landscape)  */
+	@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+		.mobile-menu{
+			display:block;
+		}
+	}
+
+	/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width : 320px) {
+	}
+}
+
+.content {
+	float: left;
+	width: 100%;
+	position: relative;
+	section {
+		position: relative;
+		.banner {
+			width: 100%;
+			min-height: 640px;
+			background: url(../images/background-image.jpg) center;
+			background-size: cover;
+		}
+
+		.initial-text {
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+
+			h2 {
+				padding: 0px 24px;
+				font-family: 'HUGEAvantGardeBold';
+				font-size: @font-headline-desktop-1;
+				color: @white;
+				line-height: 132px;
+				text-align: center;
+			}
+		}
+	}
+
+	.text-content {
+		float: left;
+		width: 100%;
+		padding: 0 24px;
+		margin-top: 60px;
+		p {
+			margin: 0 auto;
+			max-width: 968px;
+			font-family: 'GalaxieBook';
+			font-size: @font-bodytext-desktop-1;
+			color: @black;
+			line-height: 36px;
+		}
+	}
+}
+
+@media screen and (min-width: 900px) and (max-width: 990px) {
+	header {
+		.nav {
+			a {
+				padding: 24px 18px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 899px) {
+	header {
+		h1 {
+			float: left;
+			padding: 16px 0 16px 16px;
+			margin: 0 48px 0 0;
+			img {
+				width: 46px;
+				float: left;
+			}
+		}
+		.nav {
+			a {
+				padding: 16px;
+				font-size: @font-first-level-desktop-2;
+				line-height: 18px;
+			}
+		}
+		li {
+			top: 50px;
+			a {
+				font-size: @font-second-level-desktop-2;
+				color: @black;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.content {
+		.text-content {
+			margin-top: 25px;
+
+			p {
+				font-size: @font-bodytext-desktop-2;
+				line-height: 22px;
+			}
+		}
+		section {
+			.banner {
+				min-height: 480px;
+			}
+			.initial-text {
+				h2 {
+					font-size: @font-headline-desktop-2;
+					line-height: 78px;
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HUGE NavExercise</title>
+		<link rel="stylesheet" href="/styles/main.css">
+	</head>
+	<body>
+		<header id="nav-tabs">
+			<div class="menu-section">
+				<h1 class="logo">
+					<img class="hugeIcon" src="/images/HUGE-white.png" alt="HUGE inc."/>
+				</h1>
+				<button class="mobile-menu" id="menu-toggle"></button>
+			</div>
+			<div class="nav" id="toolbar"></div>
+		</header>
+		<main class="content">
+			<div id="masking"></div>
+			<div id="masking-mobile"></div>
+			<section class="banner-section">
+				<div class="banner"></div>
+				<div class="initial-text">
+					<h2>Get paid for giving a shit.</h2>
+				</div>
+			</section>
+			<section class="text-content">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</section>
+		</main>
+	</body>
+	<script src="javascript/menuController.js"></script>
+	<script src="javascript/services.js"></script>
+	<script type="text/javascript">
+		httpServices.getJsonStructure('/data/nav.json');
+	</script>
+</html>
