@@ -20,6 +20,134 @@ body {
   padding: 0;
   margin: 0;
 }
+/* Smartphones */
+@media screen and (max-width: 649px), only screen and (max-device-width: 480px) {
+  header {
+    height: 60px;
+  }
+  header .menu-area {
+    z-index: 30;
+    float: left;
+    width: 100%;
+    height: 60px;
+    position: relative;
+    background-color: #ec008c;
+  }
+  header.open-mobile nav {
+    left: 0;
+  }
+  header.open-mobile h1 {
+    left: 0;
+  }
+  header.open-mobile .mobile-menu {
+    left: 100%;
+    -webkit-transform: translate(-72px, 0px);
+    -moz-transform: translate(-72px, 0px);
+    transform: translate(-72px, 0px);
+  }
+  header h1 {
+    position: absolute;
+    left: -80px;
+    padding: 20px 0 20px 24px;
+    transition: 0.5s;
+  }
+  header h1 img {
+    width: 50px;
+  }
+  header .mobile-menu {
+    background-image: url('../images/toggle-open.svg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 0px;
+    display: block;
+    width: 72px;
+    height: 60px;
+    transition: 1s;
+    -webkit-appearance: none;
+    background-color: #ec008c;
+    border: none;
+  }
+  header .mobile-menu.close {
+    background-image: url('../images/toggle-close.svg');
+  }
+  header .mobile-menu:hover {
+    cursor: pointer;
+  }
+  header .mobile-menu:focus .nav {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+  }
+  header .mobile-menu .nav {
+    position: absolute;
+    z-index: 100;
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+  }
+  header .nav {
+    position: absolute;
+    top: 60px;
+    left: -280px;
+    background-color: #fff;
+    z-index: 20;
+    height: 100vh;
+    transition: 0.5s;
+    -webkit-transform: translate(0, -60px);
+    -moz-transform: translate(0, -60px);
+    transform: translate(0, -60px);
+  }
+  header .nav span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 18px 24px;
+  }
+  header .nav ul {
+    background-color: #ec008c;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  header .nav ul li {
+    font-family: 'HUGEAvantGardeBold';
+    font-size: 21px;
+    line-height: 48px;
+    outline: 0;
+    text-align: left;
+  }
+  header .nav ul li:hover > a {
+    background-color: #fff;
+    color: #ec008c;
+  }
+  header .nav ul li.parents:focus ul {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+  }
+  header .nav ul li.parents ul {
+    position: absolute;
+    z-index: 100;
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+  }
+  header .nav ul a {
+    border-bottom: none;
+    display: block;
+    height: 54px;
+    padding-left: 15px;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s background-color;
+    cursor: pointer;
+  }
+}
 header {
   background-color: #ec008c;
   color: #fff;
@@ -29,8 +157,6 @@ header {
   z-index: 20;
   position: relative;
   /* Sub Menus */
-  /* Smartphones (portrait and landscape)  */
-  /* Smartphones (portrait) ----------- */
 }
 header h1 {
   float: left;
@@ -87,6 +213,9 @@ header .nav ul a {
   header .mobile-menu {
     display: none;
   }
+  header .nav {
+    display: block;
+  }
   header .nav > ul li {
     width: 130px;
     border-bottom: none;
@@ -129,11 +258,6 @@ header .nav ul a {
   }
   header .nav > ul a {
     border-bottom: none;
-  }
-}
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  header .mobile-menu {
-    display: block;
   }
 }
 .content {

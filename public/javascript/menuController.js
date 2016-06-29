@@ -27,10 +27,17 @@ var menuController = ( function () {
 	function createToolbar( data ) {
 		var htmlMenu = createULElement( data.items );
 		document.getElementById( 'toolbar' ).appendChild( htmlMenu );
+		bindEventForMobileMenu();
 	};
 
-	/*NavModule.mobileToggleBehaviour();
-	NavModule.hideMenu();*/
+	function bindEventForMobileMenu() {
+		var mobileToogle = document.getElementById( 'menu-toggle' );
+		mobileToogle.onclick = function () {
+			var nav = document.getElementById( 'toolbar' );
+			nav.className === "nav" ? nav.className = "nav-mobile" : nav.className = "nav";
+		};
+	};
+
 	return {
 		createToolbar: createToolbar
 	}
