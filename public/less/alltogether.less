@@ -4,7 +4,7 @@
 @black: #000;
 @gray: #eee;
 @magenta: #ec008c;
-@translucent-black: rgba(0, 0, 0, 0.5);
+@translucentBlack: rgba(0, 0, 0, 0.5);
 //*************
 @font-first-level-desktop-1: 21px;
 @font-second-level-desktop-1: 16px;
@@ -89,24 +89,20 @@ body {
 			}
 		}
 
-		.nav {
-			position: absolute;
-			top: 60px;
-			left: -280px;
-			background-color: @white;
-			z-index: 20;
-			height: 100vh;
-			transition: 0.5s;
-			-webkit-transform: translate(0, -60px);
-			-moz-transform: translate(0, -60px);
-			transform: translate(0, -60px);
+		.nav-mobile {
+			/* critical sizing and position styles */
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
 
-			span {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				padding: 18px 24px;
-			}
+			/* non-critical appearance styles */
+			list-style: none;
+			background: #111;
 		}
 	}
 }
@@ -150,9 +146,9 @@ header {
 			}
 
 			li.parents:focus ul {
-			  /*  opacity is 1 in opened state (see below) */
-			  opacity: 1;
-			  visibility: visible;
+				/*  opacity is 1 in opened state (see below) */
+				opacity: 1;
+				visibility: visible;
 			}
 
 			li.parents ul {
@@ -288,64 +284,4 @@ header {
 	}
 }
 
-@media screen and (min-width: 900px) and (max-width: 990px) {
-	header {
-		.nav {
-			a {
-				padding: 24px 18px;
-			}
-		}
-	}
-}
-
-@media screen and (max-width: 899px) {
-	header {
-		h1 {
-			float: left;
-			padding: 16px 0 16px 16px;
-			margin: 0 48px 0 0;
-			img {
-				width: 46px;
-				float: left;
-			}
-		}
-		.nav {
-			a {
-				padding: 16px;
-				font-size: @font-first-level-desktop-2;
-				line-height: 18px;
-			}
-		}
-		li {
-			top: 50px;
-			a {
-				font-size: @font-second-level-desktop-2;
-				color: @black;
-				white-space: nowrap;
-			}
-		}
-	}
-
-	.content {
-		.text-content {
-			margin-top: 25px;
-
-			p {
-				font-size: @font-bodytext-desktop-2;
-				line-height: 22px;
-			}
-		}
-		section {
-			.banner {
-				min-height: 480px;
-			}
-			.initial-text {
-				h2 {
-					font-size: @font-headline-desktop-2;
-					line-height: 78px;
-				}
-			}
-		}
-	}
-}
 

@@ -74,78 +74,19 @@ body {
   header .mobile-menu:hover {
     cursor: pointer;
   }
-  header .mobile-menu:focus .nav {
-    /*  opacity is 1 in opened state (see below) */
-    opacity: 1;
-    visibility: visible;
-  }
-  header .mobile-menu .nav {
-    position: absolute;
-    z-index: 100;
-    /* use opacity to fake immediate toggle */
-    opacity: 0;
-    visibility: hidden;
-    transition: visibility 0.5s;
-  }
-  header .nav {
-    position: absolute;
-    top: 60px;
-    left: -280px;
-    background-color: #fff;
-    z-index: 20;
-    height: 100vh;
-    transition: 0.5s;
-    -webkit-transform: translate(0, -60px);
-    -moz-transform: translate(0, -60px);
-    transform: translate(0, -60px);
-  }
-  header .nav span {
-    position: absolute;
+  header .nav-mobile {
+    /* critical sizing and position styles */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    padding: 18px 24px;
-  }
-  header .nav ul {
-    background-color: #ec008c;
+    z-index: 0;
+    /* non-critical appearance styles */
     list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  header .nav ul li {
-    font-family: 'HUGEAvantGardeBold';
-    font-size: 21px;
-    line-height: 48px;
-    outline: 0;
-    text-align: left;
-  }
-  header .nav ul li:hover > a {
-    background-color: #fff;
-    color: #ec008c;
-  }
-  header .nav ul li.parents:focus ul {
-    /*  opacity is 1 in opened state (see below) */
-    opacity: 1;
-    visibility: visible;
-  }
-  header .nav ul li.parents ul {
-    position: absolute;
-    z-index: 100;
-    /* use opacity to fake immediate toggle */
-    opacity: 0;
-    visibility: hidden;
-    transition: visibility 0.5s;
-  }
-  header .nav ul a {
-    border-bottom: none;
-    display: block;
-    height: 54px;
-    padding-left: 15px;
-    padding-top: 10px;
-    text-decoration: none;
-    color: #fff;
-    transition: 0.3s background-color;
-    cursor: pointer;
+    background: #111;
   }
 }
 header {
@@ -304,47 +245,4 @@ header .nav ul a {
   font-size: 24px;
   color: #000;
   line-height: 36px;
-}
-@media screen and (min-width: 900px) and (max-width: 990px) {
-  header .nav a {
-    padding: 24px 18px;
-  }
-}
-@media screen and (max-width: 899px) {
-  header h1 {
-    float: left;
-    padding: 16px 0 16px 16px;
-    margin: 0 48px 0 0;
-  }
-  header h1 img {
-    width: 46px;
-    float: left;
-  }
-  header .nav a {
-    padding: 16px;
-    font-size: 16px;
-    line-height: 18px;
-  }
-  header li {
-    top: 50px;
-  }
-  header li a {
-    font-size: 14px;
-    color: #000;
-    white-space: nowrap;
-  }
-  .content .text-content {
-    margin-top: 25px;
-  }
-  .content .text-content p {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  .content section .banner {
-    min-height: 480px;
-  }
-  .content section .initial-text h2 {
-    font-size: 70px;
-    line-height: 78px;
-  }
 }
