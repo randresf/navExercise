@@ -33,9 +33,32 @@ var menuController = ( function () {
 	function bindEventForMobileMenu() {
 		var mobileToogle = document.getElementById( 'menu-toggle' );
 		mobileToogle.onclick = function () {
+			_classExists(this, "close") ? _removeGivenClass(this, "close") : _addGivenClass(this, "close");	
 			var nav = document.getElementById( 'toolbar' );
 			nav.className === "nav" ? nav.className = "nav-mobile" : nav.className = "nav";
 		};
+	};
+
+	function _classExists(domObj, className) {
+		if (domObj.classList.length > 1) {
+			for (var i = 0; i < domObj.classList.length; i++) {
+				if(domObj.classList[i] === className)
+					return true;
+			}
+			return false;
+		} else {
+			return domObj.className === className;
+		}
+	}
+	
+	function _removeGivenClass(domObj, className){
+		domObj.classList.remove(className);
+	};
+
+	function _addGivenClass(domObj, className){	
+		var exists = _classExists(domObj, className);
+		if(!exists) domObj.className += " " + className;
+		
 	};
 
 	return {
