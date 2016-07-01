@@ -14,32 +14,40 @@
   font-weight: normal;
   src: url("/fonts/GalaxieCopernicus-BookItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/GalaxieCopernicus-BookItalic.woff") format("woff"), url("/fonts/GalaxieCopernicus-BookItalic.svg#svgFontName") format("svg");
 }
-body {
-  background: #fff;
-  color: #000;
-  padding: 0;
-  margin: 0;
-}
 /* Smartphones */
 @media screen and (max-width: 649px), only screen and (max-device-width: 480px) {
   header {
     height: 60px;
+    /* Positioning the navigation items inline */
+    /* Styling the links */
+    /* Background color change on Hover */
+    /* Hide Dropdowns by Default
+	 * and giving it a position of absolute */
+    /* Display Dropdown when clicked on Parent Lable */
+    /* Change menu item's width to 100% */
   }
   header .menu-area {
     z-index: 30;
     float: left;
     width: 100%;
     height: 60px;
-    position: relative;
+    position: absolute;
     background-color: #ec008c;
   }
-  header.nav-mobile nav {
+  header .nav-mobile {
+    height: 100vh !important;
+    background: #fff !important;
+    width: 60% !important;
+    position: relative !important;
+    top: 60px;
+  }
+  header .nav-mobile .nav {
     left: 0;
   }
-  header.nav-mobile h1 {
+  header .nav-mobile h1 {
     left: 0;
   }
-  header.nav-mobile .mobile-menu {
+  header .nav-mobile .mobile-menu {
     left: 100%;
     -webkit-transform: translate(-72px, 0px);
     -moz-transform: translate(-72px, 0px);
@@ -51,8 +59,14 @@ body {
     padding: 20px 0 20px 24px;
     transition: 0.5s;
   }
-  header h1 img {
-    width: 50px;
+  header h1 img.hugeIcon {
+    width: 77px !important;
+    float: left !important;
+    margin-left: 75px;
+    display: none;
+  }
+  header h1 img.hugeIcon.active {
+    display: block;
   }
   header .nav {
     display: none;
@@ -81,20 +95,125 @@ body {
   header .mobile-menu:hover {
     cursor: pointer;
   }
-  header .nav-mobile {
-    /* critical sizing and position styles */
+  header .nav-mobile ul {
+    float: left;
+    background-color: #fff;
+    padding: 0;
     width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    /* non-critical appearance styles */
-    list-style: none;
-    background: #111;
   }
+  header .nav-mobile a {
+    display: block;
+    padding: 8px 5px;
+    color: #000;
+    font-size: 17px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  header .nav-mobile a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  header .nav-mobile ul li.parents ul {
+    display: none;
+    position: absolute;
+    /* has to be the same number as the "line-height" of "nav a" */
+    top: 60px;
+  }
+  header .nav-mobile ul li.parents.open:after {
+    bottom: 26px !important;
+    -webkit-transform: rotate(225deg) !important;
+    -moz-transform: rotate(225deg) !important;
+    transform: rotate(225deg) !important;
+    transition: 0.5s;
+  }
+  header .nav-mobile ul li.parents.open ul {
+    display: block;
+    margin: 0;
+    position: static;
+    transition: 0.4s;
+    width: 99%;
+    padding: 0;
+  }
+  header .nav-mobile ul li.parents.open ul li {
+    display: block;
+    line-height: 48px;
+    width: 99%;
+  }
+  header .nav-mobile ul li.parents.open ul a {
+    color: #000;
+    font-size: 16px;
+    line-height: 28px;
+    font-family: 'GalaxieBook';
+    transition: 0.3s background-color;
+  }
+  header .nav-mobile ul li.parents.open ul a:hover {
+    background-color: #eee;
+    color: #ec008c;
+  }
+  header .nav-mobile ul li.parents.open ul a:focus {
+    outline: 0;
+    color: #ec008c;
+  }
+  header .nav-mobile ul li.parents:after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 90%;
+    bottom: 36px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 3px solid #ec008c;
+    border-right: 3px solid #ec008c;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: 0.5s;
+  }
+  header .nav-mobile ul li {
+    font-family: 'HUGEAvantGardeBold';
+    font-size: 21px;
+    line-height: 30px;
+    outline: 0;
+    display: block;
+    width: 97%;
+    position: relative;
+    padding: 3px 0px 0px 8px;
+    float: left;
+  }
+  .content section .banner {
+    min-height: 240px !important;
+    overflow: hidden !important;
+    background: url(../images/background-image.jpg) center !important;
+    background-size: cover !important;
+  }
+  .content section .initial-text {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    transform: none !important;
+  }
+  .content section .initial-text h2 {
+    font-family: 'HUGEAvantGardeBold' !important;
+    font-size: 48px !important;
+    color: #000 !important;
+    line-height: 48px !important;
+    text-align: left !important;
+    float: left !important;
+    margin: 25px 0 !important;
+  }
+}
+/* Sub Menus */
+@media screen and (min-width: 650px) {
+  .nav {
+    display: block;
+  }
+}
+body {
+  background: #fff;
+  color: #000;
+  padding: 0;
+  margin: 0;
 }
 header {
   background-color: #ec008c;
@@ -158,7 +277,8 @@ header .nav ul a {
   cursor: pointer;
 }
 @media screen and (min-width: 650px) {
-  header .mobile-menu {
+  header .mobile-menu,
+  header .nav-mobile {
     display: none;
   }
   header .nav {
@@ -209,7 +329,6 @@ header .nav ul a {
   }
 }
 .content {
-  float: left;
   width: 100%;
   position: relative;
 }
