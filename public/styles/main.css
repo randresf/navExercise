@@ -1,3 +1,4 @@
+/* define custom fonts */
 @font-face {
   font-family: 'HUGEAvantGardeBold';
   src: url("/fonts/huge_agb_v5-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/huge_agb_v5-webfont.woff") format("woff"), url("/fonts/huge_agb_v5-webfont.ttf") format("truetype"), url("/fonts/huge_agb_v5-webfont.svg#svgFontName") format("svg");
@@ -14,7 +15,7 @@
   font-weight: normal;
   src: url("/fonts/GalaxieCopernicus-BookItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/GalaxieCopernicus-BookItalic.woff") format("woff"), url("/fonts/GalaxieCopernicus-BookItalic.svg#svgFontName") format("svg");
 }
-/* Smartphones */
+/* all the css required on small screens */
 @media screen and (max-width: 649px), only screen and (max-device-width: 480px) {
   header {
     height: 60px;
@@ -203,7 +204,6 @@
     margin: 25px 0 !important;
   }
 }
-/* Sub Menus */
 @media screen and (min-width: 650px) {
   .nav {
     display: block;
@@ -253,7 +253,7 @@ header .nav ul li:hover > a {
   color: #ec008c;
 }
 header .nav ul li.parents:focus ul {
-  /*  opacity is 1 in opened state (see below) */
+  /*  opacity is 1 in opened state */
   opacity: 1;
   visibility: visible;
 }

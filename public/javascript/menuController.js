@@ -1,6 +1,10 @@
 var menuController = ( function () {
+	/** Function overview: creates the UL element for each items collection
+	 * 	@param submenu : json with items array
+	 *   @param level : define if are parents or childs
+	 **/
 	function createULElement( submenu, level ) {
-		var level = level || "parents";
+		var level = level || "parents"; //identify if there are childs
 		if ( submenu.length ) {
 			var initialTag = document.createElement( 'ul' );
 			submenu.forEach( function ( option, index ) {
@@ -30,6 +34,9 @@ var menuController = ( function () {
 		bindEventForMobileMenu();
 	};
 
+	/** Function overview: toggle between mobile or desktop
+	 * 	@param status : where is the user curently using the app
+	 **/
 	function _listBehaviorMobile( status ) {
 		if ( status === "mobile" ) {
 			var parentsList = document.getElementsByClassName( 'parents' );
@@ -46,6 +53,9 @@ var menuController = ( function () {
 		}
 	};
 
+	/** Function overview: show/hide the submenu
+	 * 	@param domObj : DOM element to attach the event
+	 **/
 	function _bindParentAction( domObj ) {
 		domObj.onclick = function () {
 			if ( _classExists( this, "open" ) ) {
@@ -56,6 +66,9 @@ var menuController = ( function () {
 		};
 	}
 
+	/** Function overview: show/hide the heading bar for mobile or desktop
+	 * 	@param none
+	 **/
 	function bindEventForMobileMenu() {
 		var mobileToogle = document.getElementById( 'menu-toggle' );
 		var hugeIcon = document.getElementsByClassName( 'hugeIcon' )[ 0 ];
@@ -75,6 +88,11 @@ var menuController = ( function () {
 		};
 	};
 
+	/** Function overview: utility function to validate if the given
+	 *	class exists in the given element
+	 * 	@param domObj : DOM element to check
+	 * 	@param className : class to search
+	 **/
 	function _classExists( domObj, className ) {
 		if ( domObj.classList.length > 1 ) {
 			for ( var i = 0; i < domObj.classList.length; i++ ) {
@@ -87,10 +105,18 @@ var menuController = ( function () {
 		}
 	}
 
+	/** Function overview: utility function to remove the given class name
+	 * 	@param domObj : DOM element to check
+	 * 	@param className : class to remove
+	 **/
 	function _removeGivenClass( domObj, className ) {
 		domObj.classList.remove( className );
 	};
 
+	/** Function overview: utility function to add the given class name
+	 * 	@param domObj : DOM element to check
+	 * 	@param className : class to add
+	 **/
 	function _addGivenClass( domObj, className ) {
 		var exists = _classExists( domObj, className );
 		if ( !exists ) domObj.className += " " + className;
